@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="HammadIdrees_HelloWorld::helloworld" title="Hammad Idrees" module="Magento_Backend" sortOrder="177" resource="HammadIdrees_HelloWorld::helloworld"/>
+        <add id="HammadIdrees_HelloWorld::helloworldparent" title="Hammad Idrees" module="HammadIdrees_HelloWorld" sortOrder="72"  parent="HammadIdrees_HelloWorld::helloworld" resource="HammadIdrees_HelloWorld::helloworldparent" />
+        <add id="HammadIdrees_HelloWorld::helloworld1" title="Manage Blog Post" module="HammadIdrees_HelloWorld" sortOrder="0" parent="HammadIdrees_HelloWorld::helloworldparent" action="helloworld/" resource="HammadIdrees_HelloWorld::helloworld1"/>
+    </menu>
+</config>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Vendor_Banner::banner"
+             title="Banners"
+             module="Vendor_Banner"
+             sortOrder="100"
+             parent="Magento_Backend::content"
+             action="vendor_banner/banner/edit"
+             resource="Vendor_Banner::banner"/>
+
+<!--        <add id="Vendor_Banner::banner_grid"-->
+<!--             title="Banner Grid"-->
+<!--             module="Vendor_Banner"-->
+<!--             sortOrder="20"-->
+<!--             action="vendor_banner/banner/index"-->
+<!--             parent="Magento_Backend::content"-->
+<!--             resource="Vendor_Banner::banner_grid"/>-->
+
+        <add id="Vendor_Banner::banner_grid"
+             title="Banner Grid"
+             module="Vendor_Banner"
+             sortOrder="20"
+             action="vendor_banner/banner/index"
+             parent="Magento_Backend::content"
+             resource="Vendor_Banner::banner_grid"/>
+    </menu>
+</config>

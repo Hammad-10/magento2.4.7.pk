@@ -1,0 +1,18 @@
+<?php
+$block = $this->getLayout()->getBlock('HellosWorld');
+$blogCollection = $block->getHelloCollection();
+
+if (count($blogCollection)) {
+    foreach ($blogCollection as $blog) {
+        echo '<h2>' . $blog->getTitle() . '</h2><br />';
+        echo '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $blog->getContent() . '</p><br />';
+    }
+} else {
+    echo '<p>No posts found for this account.</p>';
+}
+
+if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom">
+        <?php echo $block->getPagerHtml(); ?>
+    </div>
+<?php endif; ?>

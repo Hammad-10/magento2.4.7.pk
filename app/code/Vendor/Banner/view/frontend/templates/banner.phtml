@@ -1,0 +1,22 @@
+<?php
+//get the block
+$block = $this->getLayout()->getBlock('banner');
+// Get all banner data from the block
+$banners = $block->getBannerData();
+?>
+
+<?php if (count($banners)): ?>
+    <div class="banner-container">
+        <?php foreach ($banners as $banner): ?>
+            <div class="banner-item" >
+                <h2><?php echo $banner->getName(); ?></h2>
+                <p>Status: <?php echo $banner->getStatus() ? 'Enabled' : 'Disabled'; ?></p>
+                <p>From: <?php echo $banner->getFromDate(); ?></p>
+                <p>To: <?php echo $banner->getToDate(); ?></p>
+                <img src="<?php echo $block->getViewFileUrl('Vendor_Banner::images/' . $banner->getImage()); ?>" alt="<?php echo $banner->getName(); ?>"/>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <p>No banners available.</p>
+<?php endif; ?>

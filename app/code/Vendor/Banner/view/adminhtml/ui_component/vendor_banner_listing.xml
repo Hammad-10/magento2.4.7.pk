@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<!--    <dataSource name="employee_form_data_source">-->
+<!--        <argument name="dataProvider" xsi:type="configurableObject">-->
+<!--            <argument name="class" xsi:type="string">Vendor\Banner\Model\Banner\DataProvider</argument>-->
+<!--            <argument name="primaryFieldName" xsi:type="string">id</argument>-->
+<!--            <argument name="requestFieldName" xsi:type="string">id</argument>-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="update_url" xsi:type="url" path="mui/index/render"/>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </argument>-->
+<!--    </dataSource>-->
+
+
+
+
+
+    <dataSource name="vendor_banner_listing_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">\Vendor\Banner\Model\Banner\DataProvider</argument>
+            <argument name="name" xsi:type="string">employee_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render" />
+<!--                    <item name="storageConfig" xsi:type="array">-->
+
+<!--                        <item name="indexField" xsi:type="string">id</item>-->
+
+<!--                    </item>-->
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="cacheRequests" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+<!--    <dataSource name="employee_form_data_source">-->
+<!--        <argument name="data" xsi:type="array">-->
+<!--            <item name="js_config" xsi:type="array">-->
+<!--                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>-->
+<!--            </item>-->
+<!--        </argument>-->
+
+<!--        <dataProvider class="\Vendor\Banner\Model\Banner\DataProvider" name="employee_form_data_source">-->
+<!--            <settings>-->
+<!--                <requestFieldName>id</requestFieldName>-->
+<!--                <primaryFieldName>id</primaryFieldName>-->
+<!--            </settings>-->
+<!--        </dataProvider>-->
+<!--    </dataSource>-->
+
+
+    <columns name="banner_columns">
+        <column name="ID">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+
+<!--        <column name="thumbnail">-->
+<!--            <settings>-->
+<!--                <label translate="true">Thumbnail</label>-->
+<!--            </settings>-->
+<!--        </column>-->
+
+        <column name="name">
+            <settings>
+                <label translate="true">Banner Name</label>
+<!--                <sorting>asc</sorting>-->
+            </settings>
+        </column>
+
+        <column name="category">
+            <settings>
+                <label translate="true">Category</label>
+            </settings>
+        </column>
+
+        <column name="status">
+            <settings>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+
+        <column name="from_date">
+            <settings>
+                <label translate="true">From Date</label>
+            </settings>
+        </column>
+
+        <column name="to_date">
+            <settings>
+                <label translate="true">To Date</label>
+            </settings>
+        </column>
+
+        <column name="image">
+            <settings>
+                <label translate="true">Image</label>
+            </settings>
+        </column>
+
+<!--        <column name="actions" class="Magento\Ui\Component\Listing\Columns\Actions">-->
+<!--            <settings>-->
+<!--                <indexField>id</indexField>-->
+<!--            </settings>-->
+<!--        </column>-->
+    </columns>
+
+    <listingToolbar name="listing_top">
+        <paging name="listing_paging"/>
+    </listingToolbar>
+</listing>
