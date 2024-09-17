@@ -50,6 +50,7 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
             $helloCollection->addFieldToFilter('customer_id', $customerId);
         }
 
+
         return $helloCollection;
     }
 

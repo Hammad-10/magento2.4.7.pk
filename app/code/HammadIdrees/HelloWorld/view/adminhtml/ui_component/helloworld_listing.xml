@@ -194,6 +194,12 @@
             </argument>
         </column>
 
+        <column name="image" class="HammadIdrees\HelloWorld\Ui\Component\Listing\Column\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail">
+            <settings>
+                <label translate="true">Image</label>
+            </settings>
+        </column>
+
 
         <actionsColumn name="actions" class="HammadIdrees\HelloWorld\Ui\Component\Listing\Column\HelloWorldActions">
             <argument name="data" xsi:type="array">
