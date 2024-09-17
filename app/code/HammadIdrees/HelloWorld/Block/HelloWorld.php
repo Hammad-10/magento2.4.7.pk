@@ -23,10 +23,16 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
+    public function getCustomerSession()
+    {
+        return $this->customerSessionFactory->create();
+    }
     public function getHelloCollection()
     {
         // Create session instance using the factory
-        $customerSession = $this->customerSessionFactory->create();
+//        $customerSession = $this->customerSessionFactory->create();
+
+        $customerSession = $this->getCustomerSession();
 
         // Check if customer is logged in
         if ($customerSession->isLoggedIn()) {

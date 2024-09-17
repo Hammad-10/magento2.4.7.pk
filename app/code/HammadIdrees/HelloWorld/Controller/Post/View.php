@@ -26,9 +26,17 @@ class View extends \Magento\Framework\App\Action\Action
 
         if ($post->getId()) {
             // Register the post data to be available in the view
-            $this->_view->loadLayout();
-            $this->_view->getLayout()->getBlock('postview')->setData('post', $post);
-            $this->_view->renderLayout();
+            $layout = $this->_view->loadLayout();
+            $block = $layout->getLayout()->getBlock('postview');
+
+            if ($block) {
+                $block->setData('post', $post);
+                $this->_view->renderLayout();
+            } else {
+                // Handle the case where the block is not found
+                $this->messageManager->addErrorMessage(__('Block not found.'));
+                return $this->_redirect('helloworld/index/index');
+            }
         } else {
             // Redirect if the post is not found
             return $this->_redirect('helloworld/index/index');

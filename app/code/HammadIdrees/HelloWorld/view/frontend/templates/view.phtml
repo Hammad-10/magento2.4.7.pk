@@ -2,6 +2,22 @@
 $block = $this->getLayout()->getBlock('postview');
 $post = $block->getPostData();
 
+$customerSession = $block->getCustomerSession();
+
+// Check if the customer is logged in
+if ($customerSession->isLoggedIn()) {
+    $customerId = $customerSession->getCustomerId();
+    $customer = $customerSession->getCustomer();
+    $customerName = $customer->getName();
+
+    echo '<p>Logged in customer ID: ' . $customerId . '</p>';
+    echo '<p>Customer Name is : ' . $customerName . '</p>';
+} else {
+    echo '<p>Customer is not logged in.</p>';
+}
+
+
+
 if ($post && $post->getId()) {
     echo '<h1>' . $post->getTitle() . '</h1>';
     if ($post->getImage()) {

@@ -50,4 +50,11 @@
     </type>
 
 
+
+        <type name="HammadIdrees\HelloWorld\Block\PostView">
+            <plugin name="Mageplaza_HelloWorld_Plugin" type="HammadIdrees\HelloWorld\Plugin\PostViewPlugin" sortOrder="10" disabled="false"  />
+        </type>
+
+
+
 </config>
