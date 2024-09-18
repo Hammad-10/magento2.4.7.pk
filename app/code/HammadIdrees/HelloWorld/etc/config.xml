@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <post_configurations>
+            <post_configurations_group>
+                <max_post_display_count>5</max_post_display_count>
+            </post_configurations_group>
+        </post_configurations>
+    </default>
+</config>
