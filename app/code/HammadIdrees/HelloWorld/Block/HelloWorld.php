@@ -42,6 +42,14 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
             ) == 1;
     }
 
+    public function getMaxPostDisplayCount()
+    {
+        return $this->scopeConfig->getValue(
+                'post_configurations/post_configurations_group/max_post_display_count',
+                ScopeInterface::SCOPE_STORE
+            );
+    }
+
     public function getCustomerSession()
     {
         return $this->customerSessionFactory->create();
@@ -80,12 +88,13 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
 
     public function _prepareLayout()
     {
+        $maxPostDisplayCount = $this->getMaxPostDisplayCount();
         parent::_prepareLayout();
         $this->pageConfig->getTitle()->set(__('Sample Post'));
 
         if ($this->getHelloCollection()) {
             $pager = $this->getLayout()->createBlock('Magento\Theme\Block\Html\Pager', 'hammadidrees.blog.pager')
-                ->setAvailableLimit([5 => 5, 10 => 10, 15 => 15, 20 => 20]);
+                ->setAvailableLimit([ 5=>5, $maxPostDisplayCount => $maxPostDisplayCount]);
             $pager->setShowPerPage(true);
             $pager->setCollection($this->getHelloCollection());
             $this->setChild('pager', $pager);
