@@ -4,13 +4,23 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <!-- Parent resource for your HelloWorld module -->
-                <resource id="HammadIdrees_HelloWorld::helloworld" title="Hammad Idrees HelloWorld" sortOrder="10" >
-                    <!-- Sub-resource for parent menu -->
+                <resource id="HammadIdrees_HelloWorld::helloworld" title="Hammad Idrees HelloWorld" sortOrder="10">
+                    <!-- Sub-resource for Parent Menu -->
                     <resource id="HammadIdrees_HelloWorld::helloworldparent" title="Parent Menu" sortOrder="10" />
                     <!-- Sub-resource for Manage Blog Post menu -->
                     <resource id="HammadIdrees_HelloWorld::helloworld1" title="Manage Blog Post" sortOrder="20" />
                 </resource>
             </resource>
         </resources>
+        <acl>
+            <resources>
+                <resource id="Magento_Backend::admin">
+                    <!-- New ACL Resource for Post Configurations -->
+                    <resource id="HammadIdrees_HelloWorld::post_configurations" title="Post Configurations" sortOrder="30">
+                        <resource id="HammadIdrees_HelloWorld::post_configurations_group" title="Post Configurations Group" sortOrder="10" />
+                    </resource>
+                </resource>
+            </resources>
+        </acl>
     </acl>
 </config>

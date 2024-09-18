@@ -1,8 +1,12 @@
 <?php
 namespace HammadIdrees\HelloWorld\Block;
-
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
 class HelloWorld extends \Magento\Framework\View\Element\Template
+
 {
+
+    protected $scopeConfig;
     protected $_coreRegistry = null;
     protected $_helloworldFactory;
     protected $customerSessionFactory;
@@ -10,6 +14,7 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
+        ScopeConfigInterface $scopeConfig,
         \Magento\Framework\Registry $registry,
         \Magento\Customer\Model\SessionFactory $customerSessionFactory,
         \Psr\Log\LoggerInterface $logger,
@@ -20,7 +25,21 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
         $this->_helloworldFactory = $helloworldFactory;
         $this->customerSessionFactory = $customerSessionFactory;
         $this->logger = $logger;
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
+    }
+
+    /**
+     * Check if posts should be displayed on the frontend
+     *
+     * @return bool
+     */
+    public function isPostDisplayEnabled()
+    {
+        return $this->scopeConfig->getValue(
+                'post_configurations/post_configurations_group/enable_post_display',
+                ScopeInterface::SCOPE_STORE
+            ) == 1;
     }
 
     public function getCustomerSession()
