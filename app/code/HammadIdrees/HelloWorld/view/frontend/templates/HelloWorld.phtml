@@ -4,6 +4,8 @@ $block = $this->getLayout()->getBlock('HellosWorld');
 
 // Access the customer session
 $customerSession = $block->getCustomerSession();
+// Fetch and display the blog collection
+$blogCollection = $block->getHelloCollection();
 
 // Check if the customer is logged in
 if ($customerSession->isLoggedIn()) {
@@ -13,20 +15,17 @@ if ($customerSession->isLoggedIn()) {
 
     echo '<p>Logged in customer ID: ' . $customerId . '</p>';
     echo '<p>Customer Name is : ' . $customerName . '</p>';
-} else {
-    echo '<p>Customer is not logged in.</p>';
-}
 
-// Fetch and display the blog collection
-$blogCollection = $block->getHelloCollection();
-
-if (count($blogCollection)) {
-    foreach ($blogCollection as $blog) {
-        $postUrl = $this->getUrl('helloworld/post/view', ['id' => $blog->getId()]);
-        echo '<h2><a href="' . $postUrl . '">' . $blog->getTitle() . '</a></h2><br />';
+    if (count($blogCollection)) {
+        foreach ($blogCollection as $blog) {
+            $postUrl = $this->getUrl('helloworld/post/view', ['id' => $blog->getId()]);
+            echo '<h2><a href="' . $postUrl . '">' . $blog->getTitle() . '</a></h2><br />';
+        }
+    } else {
+        echo '<p>No posts found for this account.</p>';
     }
 } else {
-    echo '<p>No posts found for this account.</p>';
+    echo '<p>Customer is not logged in.</p>';
 }
 
 // Display the pager if available

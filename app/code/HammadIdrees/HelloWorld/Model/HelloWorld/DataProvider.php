@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace HammadIdrees\HelloWorld\Model\HelloWorld;
 
 use HammadIdrees\HelloWorld\Model\ResourceModel\HelloWorld\CollectionFactory;
@@ -17,6 +13,8 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @var \Magento\Cms\Model\ResourceModel\Block\Collection
      */
     protected $collection;
+
+    public    $_storeManager;
 
     /**
      * @var DataPersistorInterface
@@ -44,12 +42,14 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $primaryFieldName,
         $requestFieldName,
         CollectionFactory $helloworldCollectionFactory,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
         DataPersistorInterface $dataPersistor,
         array $meta = [],
         array $data = []
     ) {
         $this->collection = $helloworldCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
+        $this->_storeManager=$storeManager;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
@@ -60,23 +60,49 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      */
     public function getData()
     {
+        // Get the base URL for media files
+        $baseurl = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+
+        // Check if loadedData is already set, return it if true
         if (isset($this->loadedData)) {
             return $this->loadedData;
         }
+
+        // Get the items from the collection
         $items = $this->collection->getItems();
-        /** @var \Magento\Cms\Model\Block $block */
-        foreach ($items as $block) {
-            $this->loadedData[$block->getId()] = $block->getData();
+
+        /** @var \Magento\Cms\Model\Block $helloworld */
+        foreach ($items as $helloworld) {
+            // Get data for each item
+            $temp = $helloworld->getData();
+
+            // Check if the image exists and set the URL for it
+            if (!empty($temp['image'])) {
+                $img = [];
+                $img[0]['image'] = $temp['image'];
+                $img[0]['url'] = $baseurl . 'test/' . $temp['image'];
+                $temp['logo'] = $img; // Add image data to the 'logo' field
+            }
+
+            // Add the processed data to the loadedData array
+            $this->loadedData[$helloworld->getId()] = $temp;
         }
 
+        // Check if there is any persisted data
         $data = $this->dataPersistor->get('helloworld');
         if (!empty($data)) {
-            $block = $this->collection->getNewEmptyItem();
-            $block->setData($data);
-            $this->loadedData[$block->getId()] = $block->getData();
+            $helloworld = $this->collection->getNewEmptyItem();
+            $helloworld->setData($data);
+
+            // Handle persisted data and add it to loadedData
+            $this->loadedData[$helloworld->getId()] = $helloworld->getData();
+
+            // Clear the persisted data
             $this->dataPersistor->clear('helloworld');
         }
 
+        // Return the loaded data
         return $this->loadedData;
     }
+
 }
