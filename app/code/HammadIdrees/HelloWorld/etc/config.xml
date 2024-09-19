@@ -10,7 +10,9 @@
 
 <!--                field name-->
                 <max_post_display_count>5</max_post_display_count>
+
             </post_configurations_group>
+
         </post_configurations>
     </default>
 </config>

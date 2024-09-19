@@ -2,9 +2,13 @@
 namespace HammadIdrees\HelloWorld\Block;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\Event\ManagerInterface as EventManager;
+
 class HelloWorld extends \Magento\Framework\View\Element\Template
 
 {
+
+    private $eventManager;
 
     protected $scopeConfig;
     protected $_coreRegistry = null;
@@ -15,10 +19,12 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         ScopeConfigInterface $scopeConfig,
+        EventManager $eventManager,
         \Magento\Framework\Registry $registry,
         \Magento\Customer\Model\SessionFactory $customerSessionFactory,
         \Psr\Log\LoggerInterface $logger,
         \HammadIdrees\HelloWorld\Model\ResourceModel\HelloWorld\CollectionFactory $helloworldFactory,
+
         array $data = []
     ) {
         $this->_coreRegistry = $registry;
@@ -26,6 +32,7 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
         $this->customerSessionFactory = $customerSessionFactory;
         $this->logger = $logger;
         $this->scopeConfig = $scopeConfig;
+        $this->eventManager = $eventManager;
         parent::__construct($context, $data);
     }
 
@@ -77,8 +84,10 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
             $helloCollection->addFieldToFilter('customer_id', $customerId);
         }
 
+//        $this->something($helloCollection);
         return $helloCollection;
     }
+
 
     public function getMaxPostDisplayCount()
     {
