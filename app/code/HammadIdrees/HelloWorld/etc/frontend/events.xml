@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_controller_product_view">
+        <observer name="HammadIdreesProductData" instance="HammadIdrees\HelloWorld\Observer\ProductViewObserver" />
+    </event>
+
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="order_place_after_observer" instance="HammadIdrees\HelloWorld\Observer\OrderPlaceAfterObserver" />
+    </event>
+
+</config>

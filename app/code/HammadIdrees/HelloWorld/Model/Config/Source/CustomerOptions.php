@@ -15,7 +15,7 @@ class CustomerOptions implements ArrayInterface
 
     public function toOptionArray()
     {
-        // Get the database connection
+        // Getting the database connection
         $connection = $this->resource->getConnection();
 
         // Define the customer_entity table
@@ -23,15 +23,15 @@ class CustomerOptions implements ArrayInterface
 
         // Fetch customer IDs and emails from the customer_entity table
         $select = $connection->select()
-            ->from(['c' => $customerEntityTable], ['entity_id', 'email']) // You can also fetch 'firstname' and 'lastname' if needed
-            ->order('email ASC'); // Sort by email or any other column you prefer
+            ->from(['c' => $customerEntityTable], ['entity_id', 'email']) // we can also fetch other fields
+            ->order('email ASC'); // Sorting by email in ascending order
 
         $customers = $connection->fetchAll($select);
 
         // Prepare the options array
         $options = [];
         foreach ($customers as $customer) {
-            $options[] = ['value' => $customer['entity_id'], 'label' => $customer['email']]; // Display email as the label
+            $options[] = ['value' => $customer['entity_id'], 'label' => $customer['email']]; // Display email as the label and its value will be entity_id
         }
 
         return $options;
