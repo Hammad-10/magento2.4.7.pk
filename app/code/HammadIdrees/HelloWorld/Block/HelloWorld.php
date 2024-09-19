@@ -42,13 +42,7 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
             ) == 1;
     }
 
-    public function getMaxPostDisplayCount()
-    {
-        return $this->scopeConfig->getValue(
-                'post_configurations/post_configurations_group/max_post_display_count',
-                ScopeInterface::SCOPE_STORE
-            );
-    }
+
 
     public function getCustomerSession()
     {
@@ -84,6 +78,14 @@ class HelloWorld extends \Magento\Framework\View\Element\Template
         }
 
         return $helloCollection;
+    }
+
+    public function getMaxPostDisplayCount()
+    {
+        return $this->scopeConfig->getValue(
+            'post_configurations/post_configurations_group/max_post_display_count',
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     public function _prepareLayout()

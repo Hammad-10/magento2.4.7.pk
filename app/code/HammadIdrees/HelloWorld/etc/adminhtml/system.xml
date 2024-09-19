@@ -14,6 +14,12 @@
                     <label>Enable Post Display</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="max_post_display_count" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max Post Display Count</label>
+                    <validate>validate-number</validate>
+                    <comment>Enter the maximum number of posts to display on the frontend.</comment>
+                </field>
+
             </group>
         </section>
     </system>

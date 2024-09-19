@@ -12,7 +12,6 @@ class PostViewPlugin
 //        print_r($result);  // Print the complete structure of the object
 //        echo '</pre>';
 
-        
             $customer_id = $result->getData('customer_id');
             $title = $result->getData('title');
             $title .= ' ( '. $customer_id.' )';  // Modifying the title by appending text
