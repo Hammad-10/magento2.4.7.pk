@@ -24,11 +24,25 @@ class OrderPlaceAfterObserver implements ObserverInterface
 
         $order = $observer->getEvent()->getOrder();
 
+//        print_r($order);
+//        exit();
+
         $grandTotal = $order->getGrandTotal();
         $status = $order->getStatus();
+        $state = $order->getState();
+
 
         if($grandTotal > 200){
             $order->setStatus('tocall');
+            $order->setState('processing');
+            $comment = 'Order status set to "TOCALL" because grand total is greater than 200.';
+            $order->addStatusHistoryComment($comment, 'tocall')
+            ->setIsVisibleOnFront(true);
+//            ->setIsCustomerNotified(true);
+
+//            $order->setState('tocall');
+
+
             $order->save();
 
 //            die($order->getStatus());
