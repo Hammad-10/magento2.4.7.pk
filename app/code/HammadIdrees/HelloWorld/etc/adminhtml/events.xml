@@ -3,7 +3,7 @@
 
 
     <event name="checkout_submit_all_after">
-        <observer name="order_place_after_observer" instance="HammadIdrees\HelloWorld\Observer\OrderPlaceAfterObserver" />
+        <observer name="order_place_after_observer" instance="HammadIdrees\HelloWorld\Observer\AdminSubmitOrder" />
     </event>
 
 </config>

@@ -41,8 +41,6 @@ class LimitCartQtyUpdate implements ObserverInterface
         $quoteItem->setQty(1);
 
 
-
-
         return;
     }
 }

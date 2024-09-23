@@ -14,22 +14,17 @@ class OrderPlaceAfterObserver implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-//        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
-//        $logger = new \Zend_Log();
-//        $logger->addWriter($writer);
-//        $logger->info('text message');
 
-//        die('asdasasasa');
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom1.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info('text message');
 
 
         $order = $observer->getEvent()->getOrder();
 
-//        print_r($order);
-//        exit();
 
         $grandTotal = $order->getGrandTotal();
-        $status = $order->getStatus();
-        $state = $order->getState();
 
 
         if($grandTotal > 200){
@@ -38,20 +33,11 @@ class OrderPlaceAfterObserver implements ObserverInterface
             $comment = 'Order status set to "TOCALL" because grand total is greater than 200.';
             $order->addStatusHistoryComment($comment, 'tocall')
             ->setIsVisibleOnFront(true);
-//            ->setIsCustomerNotified(true);
-
-//            $order->setState('tocall');
 
 
             $order->save();
 
-//            die($order->getStatus());
-
         }
-
-
-
-
 
 
     }
