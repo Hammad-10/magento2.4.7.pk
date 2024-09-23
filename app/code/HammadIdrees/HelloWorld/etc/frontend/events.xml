@@ -10,14 +10,22 @@
         <observer name="order_place_after_observer" instance="HammadIdrees\HelloWorld\Observer\OrderPlaceAfterObserver" />
     </event>
 
+
 <!--    this event is triggered when the "Add to Cart" button is pressed-->
     <event name="checkout_cart_add_product_complete">
         <observer name="limit_product_qty_to_one" instance="HammadIdrees\HelloWorld\Observer\ProdAddToCartAfter"/>
     </event>
 
-<!--    this event is triggere when "update" button for quantity inside the cart is pressed -->
+<!--    this event is triggered when "update" button for quantity inside the cart is pressed -->
     <event name="checkout_cart_update_items_after">
         <observer name="limit_cart_item_qty_to_one" instance="HammadIdrees\HelloWorld\Observer\LimitCartQtyUpdate" />
     </event>
+
+    <!--    this event is triggered when "View and Edit Cart" -> "Update Shopping Cart" button is pressed -->
+    <event name="checkout_cart_update_item_complete">
+        <observer name="limit_cart_item_qty_to_one" instance="HammadIdrees\HelloWorld\Observer\LimitCartQtyUpdate" />
+    </event>
+
+
 
 </config>

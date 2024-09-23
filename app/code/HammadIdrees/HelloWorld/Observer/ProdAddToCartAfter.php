@@ -16,22 +16,28 @@ class ProdAddToCartAfter implements ObserverInterface
 
     public function execute(Observer $observer)
     {
-
-        $product = $observer->getEvent()->getProduct();
-
+        // Get the product and request information from the event
+        $product = $observer->getProduct();
         $quote = $this->cart->getQuote();
-
 
         // Loop through all items in the cart to check if the product is already present
         foreach ($quote->getAllItems() as $item) {
-
-            // checking if the product is already in the cart
+            // Checking if the product is already in the cart
             if ($item->getProductId() == $product->getId()) {
-                // If the product is already in the cart, set its quantity to 1
+                // Setting the quantity to 1 to ensure it doesn't increase
                 $item->setQty(1);
                 $item->save();
+
+                // Adjusting the cart totals to remove any excess amount from previous additions
+                $quote->setTotalsCollectedFlag(false);
+                $quote->collectTotals();
+                $this->cart->save();
+
                 return;
             }
         }
     }
+
+
+
 }
