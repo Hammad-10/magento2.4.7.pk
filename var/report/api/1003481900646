@@ -1,0 +1,1 @@
+"Fatal Error: 'Allowed memory size of 792723456 bytes exhausted (tried to allocate 534777856 bytes)' in '\/var\/www\/html\/app\/code\/HammadIdrees\/HelloWorld\/Observer\/ProductSaveObserver.php' on line 25"

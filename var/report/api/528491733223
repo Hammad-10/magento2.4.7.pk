@@ -1,0 +1,1 @@
+"Fatal Error: 'Allowed memory size of 792723456 bytes exhausted (tried to allocate 4194312 bytes)' in '\/var\/www\/html\/vendor\/magento\/module-sales\/Model\/Order.php' on line 1808"

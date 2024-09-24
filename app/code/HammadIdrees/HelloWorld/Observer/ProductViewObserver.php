@@ -1,5 +1,4 @@
 <?php
-
 namespace HammadIdrees\HelloWorld\Observer;
 
 use Magento\Framework\Event\Observer;
