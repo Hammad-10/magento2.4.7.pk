@@ -47,7 +47,7 @@ class AdminSubmitOrder implements ObserverInterface
 
         // If any changes were made to the order, update the grand total
         if ($isChanged) {
-            $order->setTotalQtyOrdered(1); // Set total quantity to 1
+            $order->setTotalQtyOrdered(1); // Settting total quantity to 1
         }
 
         // Set the calculated grand total
