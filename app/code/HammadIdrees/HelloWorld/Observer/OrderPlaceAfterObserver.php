@@ -15,11 +15,6 @@ class OrderPlaceAfterObserver implements ObserverInterface
     public function execute(Observer $observer)
     {
 
-        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom1.log');
-        $logger = new \Zend_Log();
-        $logger->addWriter($writer);
-        $logger->info('text message');
-
 
         $order = $observer->getEvent()->getOrder();
 
