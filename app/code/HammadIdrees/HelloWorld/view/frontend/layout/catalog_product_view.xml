@@ -13,8 +13,8 @@
 <!--            <block class="HammadIdrees\HelloWorld\Block\Product\View\Attribute" name="restrictedcountries" template="HammadIdrees_HelloWorld::product/view/restricted_countries.phtml" />-->
 <!--        </referenceContainer>-->
 
-        <referenceContainer name="content">
-            <block after="product.info.details" class="HammadIdrees\HelloWorld\Block\Product\View\Attribute" name="restrictedcountries" template="HammadIdrees_HelloWorld::product/view/restricted_countries.phtml"  />
+        <referenceContainer name="product.info.stock.sku">
+            <block after="product.info.sku" class="HammadIdrees\HelloWorld\Block\Product\View\Attribute" name="restrictedcountries" template="HammadIdrees_HelloWorld::product/view/restricted_countries.phtml"  />
         </referenceContainer>
 
     </body>
