@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.sku">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">HammadIdrees_HelloWorld::product/view/attribute.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <!-- Add your custom block below SKU -->
+<!--        <referenceContainer name="product.info.details">-->
+<!--            <block class="HammadIdrees\HelloWorld\Block\Product\View\Attribute" name="restrictedcountries" template="HammadIdrees_HelloWorld::product/view/restricted_countries.phtml" />-->
+<!--        </referenceContainer>-->
+
+        <referenceContainer name="content">
+            <block after="product.info.details" class="HammadIdrees\HelloWorld\Block\Product\View\Attribute" name="restrictedcountries" template="HammadIdrees_HelloWorld::product/view/restricted_countries.phtml"  />
+        </referenceContainer>
+
+    </body>
+</page>
