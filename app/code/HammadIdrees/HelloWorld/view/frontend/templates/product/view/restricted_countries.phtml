@@ -3,18 +3,20 @@
  * Template for displaying restricted countries
  */
 
-echo 'hihihihooooooooooooo';
+// echo 'hihihihooooooooooooo';
 
-//$block = $this->getLayout()->getBlock('restrictedcountries');
-//
-//$restrictedCountries = $block->getRestrictedCountries();
-//
-//if ($restrictedCountries) {
-//    echo '<div class="restricted-countries">';
-//    echo '<strong>Restricted Countries:</strong> ' . $block->escapeHtml($restrictedCountries);
-//    echo '</div>';
-//}
-//else{
-//    echo 'Nothing found';
-//}
+$block = $this->getLayout()->getBlock('restrictedcountries');
+
+$restrictedCountries = $block->getRestrictedCountries();
+
+// echo 'Country is'.$restrictedCountries;
+
+if ($restrictedCountries) {
+   echo '<div class="restricted-countries">';
+   echo '<strong>Restricted Countries:</strong> ' . $block->escapeHtml($restrictedCountries);
+   echo '</div>';
+}
+else{
+   echo 'Nothing found';
+}
 ?>
