@@ -46,29 +46,33 @@ class ProductCustomAttribute implements DataPatchInterface
             'comparable' => false,
             'visible_on_front' => true,
             'used_in_product_listing' => false,
+            'is_used_in_grid' => true,
+            'is_visible_in_grid' => true,
             'unique' => false,
             'apply_to' => '',
         ]);
 
         // Adding dropdown attribute for Restricted Countries
         $eavSetup->addAttribute('catalog_product', 'restricted_countries', [
-            'type' => 'varchar', // Use varchar for the option values
+            'type' => 'varchar',
             'backend' => '',
             'frontend' => '',
             'label' => 'Restricted Countries',
-            'input' => 'select', // Set the input type to 'select'
+            'input' => 'select',
             'class' => '',
-            'source' => \Magento\Eav\Model\Entity\Attribute\Source\Boolean::class,
+            'source' => '',
             'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
             'visible' => true,
             'required' => false,
-            'user_defined' => true,
+            'user_defined' => false,
             'default' => '',
             'searchable' => false,
             'filterable' => false,
             'comparable' => false,
             'visible_on_front' => true,
             'used_in_product_listing' => false,
+            'is_used_in_grid' => true,
+            'is_visible_in_grid' => true,
             'unique' => false,
             'apply_to' => '',
             'option' => [
