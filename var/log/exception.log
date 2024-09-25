@@ -7488,3 +7488,108 @@ Stack trace:
 #83 /var/www/html/vendor/magento/framework/App/Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
 #84 /var/www/html/pub/index.php(30): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
 #85 {main} {"exception":"[object] (Exception(code: 0): Warning: Undefined property: HammadIdrees\\HelloWorld\\Block\\HelloWorld::$_customerSession in /var/www/html/vendor/magento/framework/View/TemplateEngine/Php.php on line 118 at /var/www/html/vendor/magento/framework/App/ErrorHandler.php:62)"} []
+[2024-09-25T03:54:58.770137+00:00] main.CRITICAL: Magento\Framework\Exception\LocalizedException: Please upgrade your database: Run "bin/magento setup:upgrade" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 in /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83
+Stack trace:
+#0 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(121): Magento\Framework\Module\Plugin\DbStatusValidator->beforeDispatch(Object(Magento\Framework\App\FrontController\Interceptor), Object(Magento\Framework\App\Request\Http))
+#1 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\FrontController\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\Framework\App\Request\Http))
+#2 /var/www/html/generated/code/Magento/Framework/App/FrontController/Interceptor.php(23): Magento\Framework\App\FrontController\Interceptor->___callPlugins('dispatch', Array, Array)
+#3 /var/www/html/vendor/magento/framework/App/Http.php(116): Magento\Framework\App\FrontController\Interceptor->dispatch(Object(Magento\Framework\App\Request\Http))
+#4 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\App\Http->launch()
+#5 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\App\Http\Interceptor->___callParent('launch', Array)
+#6 /var/www/html/vendor/magento/module-application-performance-monitor/Plugin/ApplicationPerformanceMonitor.php(38): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#7 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(135): Magento\ApplicationPerformanceMonitor\Plugin\ApplicationPerformanceMonitor->aroundLaunch(Object(Magento\Framework\App\Http\Interceptor), Object(Closure))
+#8 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#9 /var/www/html/generated/code/Magento/Framework/App/Http/Interceptor.php(23): Magento\Framework\App\Http\Interceptor->___callPlugins('launch', Array, NULL)
+#10 /var/www/html/vendor/magento/framework/App/Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
+#11 /var/www/html/pub/index.php(30): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
+#12 {main} {"report_id":"e924dc976ad0ea2dbfd6519dd589f7837c1e2c080f97ec481e75bae58977738f","exception":"[object] (Magento\\Framework\\Exception\\LocalizedException(code: 0): Please upgrade your database: Run \"bin/magento setup:upgrade\" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 at /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83)"} []
+[2024-09-25T03:55:04.710888+00:00] main.CRITICAL: Magento\Framework\Exception\LocalizedException: Please upgrade your database: Run "bin/magento setup:upgrade" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 in /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83
+Stack trace:
+#0 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(121): Magento\Framework\Module\Plugin\DbStatusValidator->beforeDispatch(Object(Magento\Framework\App\FrontController\Interceptor), Object(Magento\Framework\App\Request\Http))
+#1 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\FrontController\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\Framework\App\Request\Http))
+#2 /var/www/html/generated/code/Magento/Framework/App/FrontController/Interceptor.php(23): Magento\Framework\App\FrontController\Interceptor->___callPlugins('dispatch', Array, Array)
+#3 /var/www/html/vendor/magento/framework/App/Http.php(116): Magento\Framework\App\FrontController\Interceptor->dispatch(Object(Magento\Framework\App\Request\Http))
+#4 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\App\Http->launch()
+#5 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\App\Http\Interceptor->___callParent('launch', Array)
+#6 /var/www/html/vendor/magento/module-application-performance-monitor/Plugin/ApplicationPerformanceMonitor.php(38): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#7 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(135): Magento\ApplicationPerformanceMonitor\Plugin\ApplicationPerformanceMonitor->aroundLaunch(Object(Magento\Framework\App\Http\Interceptor), Object(Closure))
+#8 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#9 /var/www/html/generated/code/Magento/Framework/App/Http/Interceptor.php(23): Magento\Framework\App\Http\Interceptor->___callPlugins('launch', Array, NULL)
+#10 /var/www/html/vendor/magento/framework/App/Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
+#11 /var/www/html/pub/index.php(30): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
+#12 {main} {"report_id":"d8b286f7b96a3627f5eb5734deb5c7ceb3cbfd3d3aed5d08dc43f5e01b922c74","exception":"[object] (Magento\\Framework\\Exception\\LocalizedException(code: 0): Please upgrade your database: Run \"bin/magento setup:upgrade\" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 at /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83)"} []
+[2024-09-25T03:55:06.951949+00:00] main.CRITICAL: Magento\Framework\Exception\LocalizedException: Please upgrade your database: Run "bin/magento setup:upgrade" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 in /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83
+Stack trace:
+#0 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(121): Magento\Framework\Module\Plugin\DbStatusValidator->beforeDispatch(Object(Magento\Framework\App\FrontController\Interceptor), Object(Magento\Framework\App\Request\Http))
+#1 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\FrontController\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\Framework\App\Request\Http))
+#2 /var/www/html/generated/code/Magento/Framework/App/FrontController/Interceptor.php(23): Magento\Framework\App\FrontController\Interceptor->___callPlugins('dispatch', Array, Array)
+#3 /var/www/html/vendor/magento/framework/App/Http.php(116): Magento\Framework\App\FrontController\Interceptor->dispatch(Object(Magento\Framework\App\Request\Http))
+#4 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\App\Http->launch()
+#5 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\App\Http\Interceptor->___callParent('launch', Array)
+#6 /var/www/html/vendor/magento/module-application-performance-monitor/Plugin/ApplicationPerformanceMonitor.php(38): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#7 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(135): Magento\ApplicationPerformanceMonitor\Plugin\ApplicationPerformanceMonitor->aroundLaunch(Object(Magento\Framework\App\Http\Interceptor), Object(Closure))
+#8 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#9 /var/www/html/generated/code/Magento/Framework/App/Http/Interceptor.php(23): Magento\Framework\App\Http\Interceptor->___callPlugins('launch', Array, NULL)
+#10 /var/www/html/vendor/magento/framework/App/Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
+#11 /var/www/html/pub/index.php(30): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
+#12 {main} {"report_id":"3934b860467d52aebeeb0846d21a4b4b0d6f090891c52a276fda90c19f04271c","exception":"[object] (Magento\\Framework\\Exception\\LocalizedException(code: 0): Please upgrade your database: Run \"bin/magento setup:upgrade\" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 at /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83)"} []
+[2024-09-25T03:55:11.653230+00:00] main.CRITICAL: Magento\Framework\Exception\LocalizedException: Please upgrade your database: Run "bin/magento setup:upgrade" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 in /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83
+Stack trace:
+#0 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(121): Magento\Framework\Module\Plugin\DbStatusValidator->beforeDispatch(Object(Magento\Framework\App\FrontController\Interceptor), Object(Magento\Framework\App\Request\Http))
+#1 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\FrontController\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\Framework\App\Request\Http))
+#2 /var/www/html/generated/code/Magento/Framework/App/FrontController/Interceptor.php(23): Magento\Framework\App\FrontController\Interceptor->___callPlugins('dispatch', Array, Array)
+#3 /var/www/html/vendor/magento/framework/App/Http.php(116): Magento\Framework\App\FrontController\Interceptor->dispatch(Object(Magento\Framework\App\Request\Http))
+#4 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\App\Http->launch()
+#5 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\App\Http\Interceptor->___callParent('launch', Array)
+#6 /var/www/html/vendor/magento/module-application-performance-monitor/Plugin/ApplicationPerformanceMonitor.php(38): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#7 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(135): Magento\ApplicationPerformanceMonitor\Plugin\ApplicationPerformanceMonitor->aroundLaunch(Object(Magento\Framework\App\Http\Interceptor), Object(Closure))
+#8 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#9 /var/www/html/generated/code/Magento/Framework/App/Http/Interceptor.php(23): Magento\Framework\App\Http\Interceptor->___callPlugins('launch', Array, NULL)
+#10 /var/www/html/vendor/magento/framework/App/Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
+#11 /var/www/html/pub/index.php(30): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
+#12 {main} {"report_id":"3934b860467d52aebeeb0846d21a4b4b0d6f090891c52a276fda90c19f04271c","exception":"[object] (Magento\\Framework\\Exception\\LocalizedException(code: 0): Please upgrade your database: Run \"bin/magento setup:upgrade\" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 at /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83)"} []
+[2024-09-25T03:55:13.242278+00:00] main.CRITICAL: Magento\Framework\Exception\LocalizedException: Please upgrade your database: Run "bin/magento setup:upgrade" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 in /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83
+Stack trace:
+#0 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(121): Magento\Framework\Module\Plugin\DbStatusValidator->beforeDispatch(Object(Magento\Framework\App\FrontController\Interceptor), Object(Magento\Framework\App\Request\Http))
+#1 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\FrontController\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\Framework\App\Request\Http))
+#2 /var/www/html/generated/code/Magento/Framework/App/FrontController/Interceptor.php(23): Magento\Framework\App\FrontController\Interceptor->___callPlugins('dispatch', Array, Array)
+#3 /var/www/html/vendor/magento/framework/App/Http.php(116): Magento\Framework\App\FrontController\Interceptor->dispatch(Object(Magento\Framework\App\Request\Http))
+#4 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\App\Http->launch()
+#5 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\App\Http\Interceptor->___callParent('launch', Array)
+#6 /var/www/html/vendor/magento/module-application-performance-monitor/Plugin/ApplicationPerformanceMonitor.php(38): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#7 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(135): Magento\ApplicationPerformanceMonitor\Plugin\ApplicationPerformanceMonitor->aroundLaunch(Object(Magento\Framework\App\Http\Interceptor), Object(Closure))
+#8 /var/www/html/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#9 /var/www/html/generated/code/Magento/Framework/App/Http/Interceptor.php(23): Magento\Framework\App\Http\Interceptor->___callPlugins('launch', Array, NULL)
+#10 /var/www/html/vendor/magento/framework/App/Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
+#11 /var/www/html/pub/index.php(30): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
+#12 {main} {"report_id":"3934b860467d52aebeeb0846d21a4b4b0d6f090891c52a276fda90c19f04271c","exception":"[object] (Magento\\Framework\\Exception\\LocalizedException(code: 0): Please upgrade your database: Run \"bin/magento setup:upgrade\" from the Magento root directory.
+The following modules are outdated:
+Vendor_Banner schema: current version - none, required version - 1.0.0
+Vendor_Banner data: current version - none, required version - 1.0.0 at /var/www/html/vendor/magento/framework/Module/Plugin/DbStatusValidator.php:83)"} []
