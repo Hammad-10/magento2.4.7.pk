@@ -6,7 +6,7 @@ use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
-class ProductCustomAttribute implements DataPatchInterface
+class PCA implements DataPatchInterface
 {
     private $moduleDataSetup;
     private $eavSetupFactory;
