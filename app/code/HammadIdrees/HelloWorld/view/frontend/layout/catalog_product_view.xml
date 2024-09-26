@@ -17,5 +17,12 @@
             <block after="product.info.sku" class="HammadIdrees\HelloWorld\Block\Product\View\Attribute" name="restrictedcountries" template="HammadIdrees_HelloWorld::product/view/restricted_countries.phtml"  />
         </referenceContainer>
 
+        <referenceBlock name="product.info.addto" remove="false"/>
+
+<!--            <action method="setTemplate">-->
+<!--                <argument name="template" xsi:type="string">HammadIdrees_HelloWorld::product/view/restricted_countries.phtml</argument>-->
+<!--            </action>-->
+<!--        </referenceBlock>-->
+
     </body>
 </page>
