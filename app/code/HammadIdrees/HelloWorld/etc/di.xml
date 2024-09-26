@@ -56,5 +56,7 @@
         </type>
 
 
+    <preference for="Magento\Checkout\Controller\Onepage\Success" type="HammadIdrees\HelloWorld\Controller\Onepage\Success" />
+
 
 </config>
