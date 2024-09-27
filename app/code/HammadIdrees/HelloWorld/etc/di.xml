@@ -59,4 +59,10 @@
     <!-- <preference for="Magento\Checkout\Controller\Onepage\Success" type="HammadIdrees\HelloWorld\Controller\Onepage\Success" disabled="true"/> -->
 
 
+    <type name="HammadIdrees\HelloWorld\Observer\SaveToOrder">
+        <arguments>
+            <argument name="logger" xsi:type="object">Psr\Log\LoggerInterface</argument>
+        </arguments>
+    </type>
+
 </config>
