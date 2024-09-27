@@ -7,7 +7,7 @@
 <!--                <argument name="template" xsi:type="string">HammadIdrees_HelloWorld::onepage.phtml</argument>-->
 <!--            </action>-->
 
-            <block name="custom.checkout.fields" template="HammadIdrees_HelloWorld::custom_fields.phtml" before="checkout.root"/>
+            <!-- <block name="custom.checkout.fields" template="HammadIdrees_HelloWorld::custom_fields.phtml" before="checkout.root"/> -->
         </referenceContainer>
     </body>
 </page>
