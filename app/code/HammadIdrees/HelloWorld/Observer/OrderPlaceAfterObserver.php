@@ -18,7 +18,6 @@ class OrderPlaceAfterObserver implements ObserverInterface
 
         $order = $observer->getEvent()->getOrder();
 
-
         $grandTotal = $order->getGrandTotal();
 
 
