@@ -65,4 +65,17 @@
         </arguments>
     </type>
 
+
+    <type name="Magento\Sales\Api\OrderRepositoryInterface"> 
+    
+    <plugin name="save_tigren_attribute" 
+    
+    type="HammadIdrees\HelloWorld\Plugin\OrderSave"/> 
+    
+    <!-- <plugin name="get_tigren_attribute" 
+    
+    type="HammadIdrees\HelloWorld\Plugin\OrderGet"/>  -->
+    
+ </type>
+
 </config>
