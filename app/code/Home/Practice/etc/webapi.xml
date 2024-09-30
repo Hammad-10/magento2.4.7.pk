@@ -6,4 +6,18 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+     <route method="POST" url="/V1/rest_dev/create-invoice/">
+        <service class="Home\Practice\Api\InvoiceInterface" method="createInvoice" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+     <route method="POST" url="/V1/rest_dev/create-shipment/">
+        <service class="Home\Practice\Api\ShipmentInterface" method="createShipment" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>
