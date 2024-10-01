@@ -37,11 +37,9 @@ class ShipmentClass
             );
         }
     
-        // Use convertOrder to create a shipment from the order
-        $orderShipment = $this->convertOrder->toShipment($order); 
+        $orderShipment = $this->convertOrder->toShipment($order);
     
         foreach ($order->getAllItems() as $orderItem) {
-            // Check virtual item and item Quantity
             if (!$orderItem->getQtyToShip() || $orderItem->getIsVirtual()) {
                 continue;
             }
@@ -54,29 +52,32 @@ class ShipmentClass
         $orderShipment->register();
         $orderShipment->getOrder()->setIsInProcess(true);
     
-        // Save created Order Shipment
         $orderShipment->save();
         $orderShipment->getOrder()->save();
     
-        // Return shipment details as an array or JSON
-        return $this->formatShipmentResponse($orderShipment);
+        // Properly encode the response as JSON
+        $response = [
+            'Shipment ID' => $orderShipment->getId(),
+            'Order ID' => $orderShipment->getOrder()->getId(),
+            'Shipment Status' => $orderShipment->getShipmentStatus(),
+            'Shipped Items' => $this->formatShipmentResponse($orderShipment)
+        ];
+    
+        // Ensure the response is JSON encoded
+        return json_encode($response, JSON_PRETTY_PRINT);
     }
     
     protected function formatShipmentResponse($orderShipment)
     {
-        // Format shipment data into an array for response
-        return [
-            'shipment_id' => $orderShipment->getId(),
-            'order_id' => $orderShipment->getOrder()->getId(),
-            'shipment_status' => $orderShipment->getShipmentStatus(),
-            'items' => array_map(function($item) {
-                return [
-                    'item_id' => $item->getId(),
-                    'name' => $item->getName(),
-                    'quantity' => $item->getQty(),
-                ];
-            }, $orderShipment->getAllItems())
-        ];
+        return array_map(function($item) {
+            return [
+                'Item ID' => $item->getId(),
+                'Product Name' => $item->getName(),
+                'Shipped Quantity' => $item->getQty(),
+            ];
+        }, $orderShipment->getAllItems());
     }
+    
+    
     
 }
