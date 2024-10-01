@@ -5,4 +5,7 @@
     <preference for="Home\Practice\Api\InvoiceInterface" type="Home\Practice\Model\Api\InvoiceClass"/>
 
     <preference for="Home\Practice\Api\ShipmentInterface" type="Home\Practice\Model\Api\ShipmentClass"/>
+
+     <preference for="Home\Practice\Api\EmailInterface" type="Home\Practice\Model\Api\Email"/>
+
 </config>

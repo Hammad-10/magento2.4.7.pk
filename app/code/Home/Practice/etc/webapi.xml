@@ -20,4 +20,11 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+    <route url="/V1/custom/email" method="POST">
+        <service class="Home\Practice\Api\EmailInterface" method="sendEmail" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
 </routes>
