@@ -1,40 +1,48 @@
 <?php
 namespace Home\Practice\Model\Api;
 
-use Psr\Log\LoggerInterface;
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Translate\Inline\StateInterface;
+use Magento\Framework\Escaper;
+use Magento\Framework\Mail\Template\TransportBuilder;
+
 
 class Email
 {
-    protected $logger;
+//    protected $inlineTranslation;
+//    protected $escaper;
+//    protected $transportBuilder;
+//    protected $logger;
+//
+//    public function __construct(
+//        Context $context,
+//        StateInterface $inlineTranslation,
+//        Escaper $escaper,
+//        TransportBuilder $transportBuilder
+//    ) {
+//        parent::__construct($context);
+//        $this->inlineTranslation = $inlineTranslation;
+//        $this->escaper = $escaper;
+//        $this->transportBuilder = $transportBuilder;
+//        $this->logger = $context->getLogger();
+//    }
 
-    public function __construct(LoggerInterface $logger)
+    public function sendEmail($email, $subject, $message)
     {
-        $this->logger = $logger;
-    }
 
-    public function sendEmail(?string $email, ?string $subject, ?string $message)
-    {
-        // Ensure email, subject, and message are provided
-        if (empty($email) || empty($subject) || empty($message)) {
-            return __('Email, subject, and message cannot be empty.');
-        }
+        $from = 'hammad.idrees@ki5.co.uk';
 
         try {
-            // Prepare headers
-            $headers = "From: owner@example.com\r\n"; // Replace with your sender email
-            $headers .= "Reply-To: $email\r\n"; // Set the recipient email as Reply-To
-            $headers .= "Content-type: text/html; charset=UTF-8\r\n"; // For HTML emails
-
-            // Send email using PHP's mail function
-            if (mail($email, $subject, $message, $headers)) {
-                return __('Email sent successfully!');
-            } else {
-                return __('Email sending failed.');
-            }
+            $emaill = new \Zend_Mail();
+            $emaill->setSubject($subject);
+            $emaill->setBodyText($message);
+            $emaill->setFrom($from, 'Hammad');
+            $emaill->addTo($email, 'Hammad');
+            $emaill->send();
+            return 'Email sent successfully';
         } catch (\Exception $e) {
-            // Log the error
-            $this->logger->error('Error sending email: ' . $e->getMessage());
-            return __('Error in sending email: %1', $e->getMessage());
+            return 'Email nott sent';
+            $this->logger->debug($e->getMessage());
         }
     }
 }
