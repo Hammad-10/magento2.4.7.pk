@@ -2,14 +2,13 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Home\Practice\Block\Practice" name="practice" template="Home_Practice::practice.phtml"/>
-            <!-- <block class="Vendor\Module2\Block\HelloWorld2" name="helloworld2" template="Vendor_Module2::hello2.phtml"/> -->
+            <block class="Home\Practice\Block\Practice" name="helloworld" template="Home_Practice::hello.phtml"/>
         </referenceContainer>
 
-        <!-- <referenceBlock name="wishlist_sidebar" template="Vendor_Module2::custom_wishlist_sidebar.phtml">
+        <referenceBlock name="wishlist_sidebar" template="Home_Practice::custom_wishlist_sidebar.phtml">
             <action method="setTemplate">
-                <argument name="template" xsi:type="string">Vendor_Module2::custom_wishlist_sidebar.phtml</argument>
+                <argument name="template" xsi:type="string">Home_Practice::custom_wishlist_sidebar.phtml</argument>
             </action>
-        </referenceBlock> -->
+        </referenceBlock>
     </body>
 </page>
