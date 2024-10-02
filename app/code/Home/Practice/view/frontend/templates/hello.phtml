@@ -1,0 +1,76 @@
+<?php
+
+// Add a form with an Order ID field and buttons for generating an invoice and shipment
+echo '<form id="order-form" method="post" class="form-inline margin">';
+
+// Fieldset wrapper for better structure in Magento 2
+echo '<fieldset class="admin__fieldset">';
+
+// Order ID Label and Input Field
+echo '    <div class="field field-order-id">';
+echo '        <label for="order-id" class="label"><span>Order ID</span></label>';
+echo '        <div class="control">';
+echo '            <input type="number" id="order-id" name="order_id" class="input-text admin__control-text" required>';
+echo '        </div>';
+echo '    </div>';
+echo '    <br><br>';
+
+// Generate Invoice Button
+echo '    <button type="button" id="generate-invoice" class="action-default scalable action-primary" onclick="createInvoiceAjax()">Generate Invoice</button>';
+
+// Generate Shipment Button
+echo '    <button type="button" id="generate-shipment" class="action-default scalable action-secondary" onclick="createShipmentAjax()">Generate Shipment</button>';
+
+echo '</fieldset>';
+echo '</form>';
+
+?>
+
+
+<script type="text/javascript">
+    function createInvoiceAjax() {
+        var orderId = document.getElementById('order-id').value;
+        if (orderId) {
+            jQuery.ajax({
+                url: '/practice/order/generateinvoice',
+                type: 'POST',
+                data: { order_id: orderId },
+                success: function(response) {
+                    if (response.success) {
+                        alert('Invoice generated: ' + response.message);
+                    } else {
+                        alert('Failed to generate invoice.');
+                    }
+                },
+                error: function() {
+                    alert('Error occurred while generating invoice.');
+                }
+            });
+        } else {
+            alert('Please enter an Order ID.');
+        }
+    }
+
+    function createShipmentAjax() {
+        var orderId = document.getElementById('order-id').value;
+        if (orderId) {
+            jQuery.ajax({
+                url: '/practice/order/generateshipment',
+                type: 'POST',
+                data: { order_id: orderId },
+                success: function(response) {
+                    if (response.success) {
+                        alert('Shipment generated: ' + response.message);
+                    } else {
+                        alert('Failed to generate shipment.');
+                    }
+                },
+                error: function() {
+                    alert('Error occurred while generating invoice.');
+                }
+            });
+        } else {
+            alert('Please enter an Order ID.');
+        }
+    }
+</script>

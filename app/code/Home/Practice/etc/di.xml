@@ -8,4 +8,13 @@
 
      <preference for="Home\Practice\Api\EmailInterface" type="Home\Practice\Model\Api\Email"/>
 
+    <type name="\Magento\Sales\Model\Order">
+        <plugin name="canInvoiceAfterPlugin" type="Home\Practice\Plugin\CanInvoicePlugin" sortOrder="10" disabled="false"  />
+    </type>
+
+    <type name="\Magento\Sales\Model\Order">
+        <plugin name="canShipAfterPlugin" type="Home\Practice\Plugin\CanShipPlugin" sortOrder="10" disabled="false"  />
+    </type>
+
+
 </config>
