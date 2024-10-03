@@ -2,11 +2,23 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Home\Practice\Api\CustomInterface" type="Home\Practice\Model\Api\Custom"/>
 
+    <!--    preference to create invoice based on orderId-->
     <preference for="Home\Practice\Api\InvoiceInterface" type="Home\Practice\Model\Api\InvoiceClass"/>
 
+    <!--    preference to create all invoices-->
+    <preference for="Home\Practice\Api\AllInvoiceInterface" type="Home\Practice\Model\Api\AllInvoicesClass"/>
+
+    <!--    preference to create shipment based on orderId-->
     <preference for="Home\Practice\Api\ShipmentInterface" type="Home\Practice\Model\Api\ShipmentClass"/>
 
+    <!--    preference to create all shipments-->
+    <preference for="Home\Practice\Api\AllShipmentInterface" type="Home\Practice\Model\Api\AllShipmentsClass"/>
+
+
+
      <preference for="Home\Practice\Api\EmailInterface" type="Home\Practice\Model\Api\Email"/>
+
+
 
     <type name="\Magento\Sales\Model\Order">
         <plugin name="canInvoiceAfterPlugin" type="Home\Practice\Plugin\CanInvoicePlugin" sortOrder="10" disabled="false"  />
