@@ -1,7 +1,44 @@
 <?php
 
+// Add custom styles to center the form and adjust button positions
+echo '<style>
+    .centered-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; /* Full viewport height for vertical centering */
+        text-align: center;
+    }
+
+    .admin__fieldset {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .field-order-id {
+        margin-bottom: 20px;
+    }
+
+    .action-default {
+        margin: 10px 0;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    #generate-all-invoices, #generate-all-shipments {
+        margin-top: 30px;
+        padding: 12px 24px;
+        font-size: 18px;
+    }
+</style>';
+
 // Add a form with an Order ID field and buttons for generating an invoice and shipment
-echo '<form id="order-form" method="post" class="form-inline margin">';
+echo '<div class="centered-form">';
+echo '<form id="order-form" method="post" class="form-inline">';
 
 // Fieldset wrapper for better structure in Magento 2
 echo '<fieldset class="admin__fieldset">';
@@ -24,14 +61,14 @@ echo '    <button type="button" id="generate-shipment" class="action-default sca
 echo '</fieldset>';
 echo '</form>';
 
-
-// Generate All Invoices Button
+// Generate All Invoices and Generate All Shipments Buttons below the form
 echo '    <button type="button" id="generate-all-invoices" class="action-default scalable action-secondary" onclick="createAllInvoicesAjax()">Generate All Invoices</button>';
-
-// Generate All Shipments Button
 echo '    <button type="button" id="generate-all-shipments" class="action-default scalable action-secondary" onclick="createAllShipmentsAjax()">Generate All Shipments</button>';
 
+echo '</div>';
+
 ?>
+
 
 
 <script type="text/javascript">
@@ -58,6 +95,25 @@ echo '    <button type="button" id="generate-all-shipments" class="action-defaul
         }
     }
 
+
+    function createAllInvoicesAjax() {
+            jQuery.ajax({
+                url: '/practice/order/generateallinvoices',
+                type: 'POST',
+                success: function(response) {
+                    if (response.success) {
+                        alert('Success: ' + response.message);
+                    } else {
+                        alert('Failed to generate invoices.');
+                    }
+                },
+                error: function() {
+                    alert('Error occurred while generating invoices.');
+                }
+            });
+
+    }
+
     function createShipmentAjax() {
         var orderId = document.getElementById('order-id').value;
         if (orderId) {
@@ -80,4 +136,23 @@ echo '    <button type="button" id="generate-all-shipments" class="action-defaul
             alert('Please enter an Order ID.');
         }
     }
+
+    function createAllShipmentsAjax() {
+            jQuery.ajax({
+                url: '/practice/order/generateallshipments',
+                type: 'POST',
+                success: function(response) {
+                    if (response.success) {
+                        alert('Success: ' + response.message);
+                    } else {
+                        alert('Failed to generate shipment.');
+                    }
+                },
+                error: function() {
+                    alert('Error occurred while generating shipment.');
+                }
+            });
+
+    }
+
 </script>

@@ -7,6 +7,7 @@
         </resources>
     </route>
 
+<!--    end-point to create invoice based on orderId-->
      <route method="POST" url="/V1/rest_dev/create-invoice/">
         <service class="Home\Practice\Api\InvoiceInterface" method="createInvoice" />
         <resources>
@@ -14,8 +15,25 @@
         </resources>
     </route>
 
+    <!--    end-point to create all invoices-->
+    <route method="POST" url="/V1/rest_dev/create-all-invoices/">
+        <service class="Home\Practice\Api\AllInvoiceInterface" method="createAllInvoices" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!--    end-point to create shipment based on orderId-->
      <route method="POST" url="/V1/rest_dev/create-shipment/">
         <service class="Home\Practice\Api\ShipmentInterface" method="createShipment" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!--    end-point to create all shipments -->
+    <route method="POST" url="/V1/rest_dev/create-all-shipments/">
+        <service class="Home\Practice\Api\AllShipmentInterface" method="createAllShipments" />
         <resources>
             <resource ref="anonymous"/>
         </resources>
